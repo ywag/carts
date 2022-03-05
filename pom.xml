@@ -20,7 +20,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <sleuth.version>3.1.1</sleuth.version>
         <hal-browser.version>3.3.9.RELEASE</hal-browser.version>
         <embedded-mongo.version>3.4.3</embedded-mongo.version>
         <openpojo.version>0.9.1</openpojo.version>
