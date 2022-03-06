@@ -23,7 +23,13 @@ Checkout the API Spec [here](http://microservices-demo.github.io/api/index?url=h
 
 # Run
 
+Java
+
 `mvn spring-boot:run`
+
+Docker Compose(with carts-db)
+
+`GROUP=weaveworksdemos COMMIT=<carts version> MONGO_VERSION=<mongo db version> docker compose -f ./deploy/docker-compose.yml up -d`
 
 # Check
 

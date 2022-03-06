@@ -1,0 +1,15 @@
+services:
+
+  carts:
+    image: ${GROUP}/carts:${COMMIT}
+    environment:
+      - JAVA_OPTS=-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
+    ports:
+      - "8081:80"
+    depends_on:
+      - carts-db
+
+  carts-db:
+    image: mongo:${MONGO_VERSION}
+    ports:
+      - "27017:27107"
