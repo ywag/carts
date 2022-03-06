@@ -1,21 +1,20 @@
 package works.weave.socks.cart.configuration;
 
-import org.springframework.boot.autoconfigure.AutoConfigureBefore;
-import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
+import org.springframework.boot.autoconfigure.mongo.MongoClientSettingsBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.mongodb.MongoClientOptions;
+import java.util.concurrent.TimeUnit;
 
 @Configuration
-@AutoConfigureBefore(MongoAutoConfiguration.class)
 public class MongoConfiguration {
 
     @Bean
-    public MongoClientOptions optionsProvider() {
-        MongoClientOptions.Builder optionsBuilder = new MongoClientOptions.Builder();
-        optionsBuilder.serverSelectionTimeout(10000);
-        MongoClientOptions options = optionsBuilder.build();
-        return options;
+    public MongoClientSettingsBuilderCustomizer mongoDBDefaultSettings() {
+        return builder -> {
+            builder.applyToClusterSettings( blockBuilder -> {
+                blockBuilder.serverSelectionTimeout(10000, TimeUnit.MILLISECONDS);
+            });
+        };
     }
 }

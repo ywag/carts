@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/microservices-demo/carts.svg?branch=master)](https://travis-ci.org/microservices-demo/carts) [![Coverage Status](https://coveralls.io/repos/github/microservices-demo/carts/badge.svg?branch=master)](https://coveralls.io/github/microservices-demo/carts?branch=master)
-[![](https://images.microbadger.com/badges/image/weaveworksdemos/cart.svg)](http://microbadger.com/images/weaveworksdemos/cart "Get your own image badge on microbadger.com")
 # cart
 A microservices-demo service that provides shopping carts for users.
 
@@ -25,7 +23,13 @@ Checkout the API Spec [here](http://microservices-demo.github.io/api/index?url=h
 
 # Run
 
+Java
+
 `mvn spring-boot:run`
+
+Docker Compose(with carts-db)
+
+`GROUP=weaveworksdemos COMMIT=<carts version> MONGO_VERSION=<mongo db version> docker compose -f ./deploy/docker-compose.yml up -d`
 
 # Check
 
